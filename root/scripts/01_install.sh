@@ -6,5 +6,5 @@ dpkg-buildpackage -uc -us
 sudo dpkg -i ../lxc-desktop_*_all.deb
 sudo apt-get -f install
 
-sudo lxc-create -n container -t ubuntu-desktop
+#sudo lxc-create -n container -t ubuntu-desktop
 #sudo lxc-start -n container -d
