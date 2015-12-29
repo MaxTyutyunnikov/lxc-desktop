@@ -12,22 +12,22 @@ device_clone_script()
         echo "# $1"
         case `stat -L -c '%F' $1` in
                 "block special file")
-                        echo "rm -f $LXC_ROOTFS_MOUNT$1"
-                        stat -L -c "mknod $LXC_ROOTFS_MOUNT%n b 0x%t 0x%T" $1
+                        echo "rm -f $LXC_ROOTFS_MOUNT/../rootfs.dev$1"
+                        stat -L -c "mknod $LXC_ROOTFS_MOUNT/../rootfs.dev%n b 0x%t 0x%T" $1
                         ;;
                 "character special file")
-                        echo "rm -f $LXC_ROOTFS_MOUNT$1"
-                        stat -L -c "mknod $LXC_ROOTFS_MOUNT%n c 0x%t 0x%T" $1
+                        echo "rm -f $LXC_ROOTFS_MOUNT/../rootfs.dev$1"
+                        stat -L -c "mknod $LXC_ROOTFS_MOUNT/../rootfs.dev%n c 0x%t 0x%T" $1
                         ;;
                 "directory")
-                        echo "mkdir -p $LXC_ROOTFS_MOUNT$1"
+                        echo "mkdir -p $LXC_ROOTFS_MOUNT/../rootfs.dev$1"
                         ;;
                 *)
                         return
                         ;;
         esac
-        stat -L -c "chmod %a $LXC_ROOTFS_MOUNT%n" $1
-        stat -L -c "chown %u:%g $LXC_ROOTFS_MOUNT%n" $1
+        stat -L -c "chmod %a $LXC_ROOTFS_MOUNT/../rootfs.dev%n" $1
+        stat -L -c "chown %u:%g $LXC_ROOTFS_MOUNT/../rootfs.dev%n" $1
 }
 
 clone_device()
