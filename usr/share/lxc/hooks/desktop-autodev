@@ -130,6 +130,7 @@ Section "InputDevice"
   Option "AutoServerLayout" "true"
 EndSection
 EOF
+        done)
 
         mkdir -p $LXC_ROOTFS_MOUNT/etc/lightdm
         cat >$LXC_ROOTFS_MOUNT/etc/lightdm/lightdm.conf <<EOF
