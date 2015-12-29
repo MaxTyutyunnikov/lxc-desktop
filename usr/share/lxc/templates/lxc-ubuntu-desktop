@@ -89,7 +89,7 @@ if dpkg -s lxc-desktop-cache >/dev/null 2>&1; then
         > $rootfs/etc/apt/apt.conf.d/02proxy
 fi
 
-packages="ubuntu-desktop $packages"
+packages="ubuntu-desktop language-pack-ru $packages"
 
 /usr/share/lxc/templates/lxc-ubuntu --name="$name" --path="$path" \
     --rootfs="$rootfs" --packages="$packages" --user max \
