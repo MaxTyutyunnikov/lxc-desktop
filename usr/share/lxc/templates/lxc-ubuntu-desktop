@@ -92,4 +92,5 @@ fi
 packages="ubuntu-desktop $packages"
 
 /usr/share/lxc/templates/lxc-ubuntu --name="$name" --path="$path" \
-    --rootfs="$rootfs" --packages="$packages"
+    --rootfs="$rootfs" --packages="$packages" --user max \
+    --password max --bindhome="max"
