@@ -16,6 +16,7 @@ popd &> /dev/null
 
 sudo lxc-stop -n container
 sudo lxc-stop -n c1
+sudo lxc-stop -n c2
 
 sudo lxc-destroy -n container
 sudo lxc-destroy -n c1
