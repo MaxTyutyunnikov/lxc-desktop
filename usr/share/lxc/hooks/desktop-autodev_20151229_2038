@@ -86,55 +86,50 @@ if [ -n "$LXC_ROOTFS_MOUNT" -a -d $LXC_ROOTFS_MOUNT/etc ]; then
         find $LXC_ROOTFS_MOUNT/dev -ls
 
         mkdir -p $LXC_ROOTFS_MOUNT/etc/X11
-        rm -f $LXC_ROOTFS_MOUNT/etc/X11/xorg.conf
+        cat >$LXC_ROOTFS_MOUNT/etc/X11/xorg.conf <<EOF
+Section "ServerFlags"
+  Option "AutoAddDevices" "false"
+EndSection
+EOF
+	(cd /dev/input && for input in event*; do
+        cat >>$LXC_ROOTFS_MOUNT/etc/X11/xorg.conf <<EOF
 
-#        echo > $LXC_ROOTFS_MOUNT/etc/X11/xorg.conf
+Section "InputDevice"
+  Identifier "$input"
+  Driver "evdev"
+  Option "Device" "/dev/input/$input"
+  Option "AutoServerLayout" "true"
+EndSection
+EOF
+	done)
 
-#        cat >>$LXC_ROOTFS_MOUNT/etc/X11/xorg.conf <<EOF
-#Section "ServerFlags"
-#  Option "AutoAddDevices" "false"
-#EndSection
-#EOF
+        (cd /dev/input && for input in mouse*; do
+        cat >>$LXC_ROOTFS_MOUNT/etc/X11/xorg.conf <<EOF
 
-#        (cd /dev/input && for input in event*; do
-#        cat >>$LXC_ROOTFS_MOUNT/etc/X11/xorg.conf <<EOF
-#
-#Section "InputDevice"
-#  Identifier "$input"
-#  Driver "evdev"
-#  Option "Device" "/dev/input/$input"
-#  Option "AutoServerLayout" "true"
-#EndSection
-#EOF
-#        done)
+Section "InputDevice"
+  Identifier "$input"
+  Driver "mouse"
+  Option "Protocol" "auto"
+  Option "ZAxisMapping" "4 5 6 7"
+  Option "Device" "/dev/input/$input"
+  Option "AutoServerLayout" "true"
+EndSection
+EOF
+        done)
 
-#        (cd /dev/input && for input in mouse*; do
-#        cat >>$LXC_ROOTFS_MOUNT/etc/X11/xorg.conf <<EOF
-#
-#Section "InputDevice"
-#  Identifier "$input"
-#  Driver "mouse"
-#  Option "Protocol" "auto"
-#  Option "ZAxisMapping" "4 5 6 7"
-#  Option "Device" "/dev/input/$input"
-#  Option "AutoServerLayout" "true"
-#EndSection
-#EOF
-#        done)
+        (cd /dev/input && for input in mice; do
+        cat >>$LXC_ROOTFS_MOUNT/etc/X11/xorg.conf <<EOF
 
-#        (cd /dev/input && for input in mice; do
-#        cat >>$LXC_ROOTFS_MOUNT/etc/X11/xorg.conf <<EOF
-#
-#Section "InputDevice"
-#  Identifier "$input"
-#  Driver "mouse"
-#  Option "Protocol" "auto"
-#  Option "ZAxisMapping" "4 5 6 7"
-#  Option "Device" "/dev/input/$input"
-#  Option "AutoServerLayout" "true"
-#EndSection
-#EOF
-#        done)
+Section "InputDevice"
+  Identifier "$input"
+  Driver "mouse"
+  Option "Protocol" "auto"
+  Option "ZAxisMapping" "4 5 6 7"
+  Option "Device" "/dev/input/$input"
+  Option "AutoServerLayout" "true"
+EndSection
+EOF
+        done)
 
         mkdir -p $LXC_ROOTFS_MOUNT/etc/lightdm
         cat >$LXC_ROOTFS_MOUNT/etc/lightdm/lightdm.conf <<EOF
