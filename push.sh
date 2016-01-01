@@ -13,5 +13,5 @@ ssh book cd /root/lxc-desktop && git pull --all
 echo === 04 =============================================================
 ssh book /root/lxc-desktop/root/scripts/01_install.sh
 echo === 05 =============================================================
-#ssh book /root/lxc-desktop/root/scripts/02_create.sh
+ssh book /root/lxc-desktop/root/scripts/02_create.sh
 echo === 06 =============================================================
