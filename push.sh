@@ -8,3 +8,4 @@ ssh book mkdir /root/lxc-desktop
 ssh book git clone "git@github.com:MaxTyutyunnikov/lxc-desktop.git" /root/lxc-desktop
 ssh book cd /root/lxc-desktop && git pull --all 
 ssh book /root/lxc-desktop/root/scripts/01_install.sh
+#ssh book /root/lxc-desktop/root/scripts/02_create.sh
