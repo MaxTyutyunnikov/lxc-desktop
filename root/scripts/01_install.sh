@@ -2,9 +2,8 @@
 
 pushd /root/lxc-desktop &> /dev/null
 
-#git clone https://github.com/ustuehler/lxc-desktop
-git clone https://github.com/MaxTyutyunnikov/lxc-desktop.git
-cd lxc-desktop
+mkdir /root/lxc-desktop
+git clone https://github.com/MaxTyutyunnikov/lxc-desktop.git /root/lxc-desktop
 git pull --all
 sudo apt-get install ubuntu-dev-tools debhelper
 dpkg-buildpackage -uc -us
