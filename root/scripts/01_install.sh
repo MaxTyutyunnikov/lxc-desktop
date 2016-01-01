@@ -21,6 +21,6 @@ sudo lxc-destroy -n container
 sudo lxc-destroy -n c1
 sudo lxc-destroy -n c2
 
-sudo lxc-create -n container -t ubuntu-desktop --packages="fglrx gnome-terminal mc aptitude dkms" -l debug -o debug.log
+sudo lxc-create -n container -t ubuntu-desktop -l debug -o debug.log -- --packages="fglrx gnome-terminal mc aptitude dkms"
 sudo lxc-clone container c1
 sudo lxc-clone container c2
