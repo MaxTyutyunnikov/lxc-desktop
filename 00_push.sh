@@ -7,7 +7,7 @@ git push --all
 echo === 01 =============================================================
 ssh book mkdir /root/lxc-desktop
 echo === 02 =============================================================
-ssh book git clone "git@github.com:MaxTyutyunnikov/lxc-desktop.git" /root/lxc-desktop
+ssh book git clone "https://github.com/MaxTyutyunnikov/lxc-desktop.git" /root/lxc-desktop
 echo === 03 =============================================================
 ssh book cd /root/lxc-desktop && git pull --all 
 echo === 04 =============================================================
