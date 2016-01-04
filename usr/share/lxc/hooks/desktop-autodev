@@ -102,9 +102,8 @@ clone_devices \
         /dev/uinput \
         \
         /dev/dri \
-        /dev/dri/card* \
-        /dev/dri/control* \
-        /dev/dri/render* \
+        /dev/dri/* \
+        /dev/dri/*/* \
         \
         /dev/input \
         /dev/input/* \
@@ -119,6 +118,7 @@ clone_devices \
         /dev/snd \
         /dev/snd/* \
         /dev/snd/*/* \
+
 
 # For Docker in LXC with lxc.aa_profile = lxc-container-default-with-nesting.
 clone_devices \
