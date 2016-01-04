@@ -84,6 +84,7 @@ fi
 #        /dev/v4l/* \
 #        /dev/v4l/*/* \
 #        \
+#        /dev/ptmx \
 
 clone_devices \
         /dev/console \
@@ -94,7 +95,6 @@ clone_devices \
         /dev/fb1 \
         /dev/mem \
         /dev/psaux \
-        /dev/ptmx \
         /dev/i2c-* \
         /dev/hidraw0 \
         /dev/hidraw1 \
@@ -102,7 +102,6 @@ clone_devices \
         \
         /dev/dri \
         /dev/dri/* \
-        /dev/dri/*/* \
         \
         /dev/input \
         /dev/input/* \
