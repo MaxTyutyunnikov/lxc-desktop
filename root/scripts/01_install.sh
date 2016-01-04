@@ -1,8 +1,9 @@
 #!/bin/bash
 
+mkdir /root/lxc-desktop
+
 pushd /root/lxc-desktop &> /dev/null
 
-mkdir /root/lxc-desktop
 git clone https://github.com/MaxTyutyunnikov/lxc-desktop.git /root/lxc-desktop
 git pull --all
 sudo apt-get install ubuntu-dev-tools debhelper
