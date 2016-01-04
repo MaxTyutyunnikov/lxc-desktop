@@ -19,7 +19,7 @@ device_clone_script()
                         echo "rm -f $LXC_ROOTFS_MOUNT$1" >> $LXC_ROOTFS_MOUNT/etc/rcS.d/mknodes
                         echo "#"$1 >> $LXC_ROOTFS_MOUNT/etc/rcS.d/mknodes
                         echo "#"$(readlink -f $1) >> $LXC_ROOTFS_MOUNT/etc/rcS.d/mknodes
-                        echo "ln -s $LXC_ROOTFS_MOUNT$(readlink -f $1) $LXC_ROOTFS_MOUNT$1" >> $LXC_ROOTFS_MOUNT/etc/rcS.d/mknodes
+                        echo "ln -s $(readlink -f $1) $LXC_ROOTFS_MOUNT$1" >> $LXC_ROOTFS_MOUNT/etc/rcS.d/mknodes
 
                         ;;
                 "block special file")
