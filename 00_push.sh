@@ -9,9 +9,9 @@ ssh book mkdir /root/lxc-desktop
 echo === 02 =============================================================
 ssh book git clone "https://github.com/MaxTyutyunnikov/lxc-desktop.git" /root/lxc-desktop
 echo === 03 =============================================================
-ssh book pushd /root/lxc-desktop &> /dev/null && git pull --all
+#ssh book pushd /root/lxc-desktop &> /dev/null && git pull --all
 echo === 04 =============================================================
-##ssh book /root/lxc-desktop/root/scripts/01_install.sh
+ssh book /root/lxc-desktop/root/scripts/01_install.sh
 echo === 05 =============================================================
 ##ssh book /root/lxc-desktop/root/scripts/02_create.sh
 echo === 06 =============================================================
