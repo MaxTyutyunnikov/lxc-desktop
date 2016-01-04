@@ -84,10 +84,10 @@ fi
 #        /dev/v4l/* \
 #        /dev/v4l/*/* \
 #        \
-#        /dev/console \
-#        \
 
 clone_devices \
+        /dev/console \
+        \
         /dev/vga_arbiter \
         /dev/video0 \
         /dev/sr0 \
