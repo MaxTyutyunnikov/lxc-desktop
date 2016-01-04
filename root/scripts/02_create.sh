@@ -1,5 +1,7 @@
 #!/bin/bash
 
+pushd /root &> /dev/null
+
 echo > /root/debug.log
 
 sudo lxc-stop -n container
