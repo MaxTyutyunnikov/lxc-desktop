@@ -75,15 +75,6 @@ if [ -n "$LXC_ROOTFS_MOUNT" -a -d $LXC_ROOTFS_MOUNT/etc ]; then
     chmod 0755 $LXC_ROOTFS_MOUNT/etc/rcS.d/mknodes
 fi
 
-#        /dev/dri \
-#        /dev/dri/card* \
-#        /dev/dri/control* \
-#        /dev/dri/render* \
-#        \
-#        /dev/input \
-#        /dev/input/* \
-#        /dev/input/*/* \
-#        \
 #        /dev/bus \
 #        /dev/bus/* \
 #        /dev/bus/*/* \
@@ -109,6 +100,15 @@ clone_devices \
         /dev/hidraw0 \
         /dev/hidraw1 \
         /dev/uinput \
+        \
+        /dev/dri \
+        /dev/dri/card* \
+        /dev/dri/control* \
+        /dev/dri/render* \
+        \
+        /dev/input \
+        /dev/input/* \
+        /dev/input/*/* \
         \
         /dev/net \
         /dev/net/tun
