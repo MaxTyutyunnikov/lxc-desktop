@@ -76,9 +76,6 @@ if [ -n "$LXC_ROOTFS_MOUNT" -a -d $LXC_ROOTFS_MOUNT/etc ]; then
 fi
 
 clone_devices \
-#        /dev/* \
-#        /dev/*/* \
-#        /dev/*/*/* \
         /dev/vga_arbiter \
         /dev/console \
         /dev/video0 \
@@ -86,22 +83,37 @@ clone_devices \
         /dev/fb0 \
         /dev/fb1 \
         /dev/mem \
+        /dev/psaux \
+        /dev/i2c-* \
+        \
+        /dev/char \
+        /dev/char/* \
+        \
+        /dev/tty[0-9] \
+        /dev/tty[0-9][0-9] \
+        \
         /dev/dri \
         /dev/dri/card* \
         /dev/dri/control* \
         /dev/dri/render* \
+        \
         /dev/input \
         /dev/input/* \
         /dev/input/*/* \
+        \
         /dev/snd \
         /dev/snd/* \
         /dev/snd/*/* \
+        \
+        /dev/bus \
+        /dev/bus/* \
+        /dev/bus/*/* \
+        /dev/bus/*/*/* \
+        \
         /dev/v4l \
         /dev/v4l/* \
         /dev/v4l/*/* \
-        /dev/psaux \
-        /dev/tty[0-9] \
-        /dev/tty[0-9][0-9] \
+        \
         /dev/net \
         /dev/net/tun
 
