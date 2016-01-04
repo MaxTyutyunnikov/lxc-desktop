@@ -76,6 +76,17 @@ if [ -n "$LXC_ROOTFS_MOUNT" -a -d $LXC_ROOTFS_MOUNT/etc ]; then
 fi
 
 #        /dev/console \
+#        \
+#        /dev/dri \
+#        /dev/dri/card* \
+#        /dev/dri/control* \
+#        /dev/dri/render* \
+#        \
+#        /dev/input \
+#        /dev/input/* \
+#        /dev/input/*/* \
+#        \
+
 clone_devices \
         /dev/vga_arbiter \
         /dev/video0 \
@@ -89,20 +100,8 @@ clone_devices \
         /dev/hidraw1 \
         /dev/uinput \
         \
-        /dev/char \
-        /dev/char/* \
-        \
         /dev/tty[0-9] \
         /dev/tty[0-9][0-9] \
-        \
-        /dev/dri \
-        /dev/dri/card* \
-        /dev/dri/control* \
-        /dev/dri/render* \
-        \
-        /dev/input \
-        /dev/input/* \
-        /dev/input/*/* \
         \
         /dev/snd \
         /dev/snd/* \
