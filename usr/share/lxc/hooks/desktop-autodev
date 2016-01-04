@@ -14,10 +14,11 @@ device_clone_script()
         case `stat -c '%F' $1` in
                 "symbolic link")
                         echo "rm -f $LXC_ROOTFS_MOUNT$1"
-                        echo "ln -s $(readlink -f $LXC_ROOTFS_MOUNT$1) $LXC_ROOTFS_MOUNT$1" $1
+                        echo "ln -s $(readlink -f $LXC_ROOTFS_MOUNT$1) $LXC_ROOTFS_MOUNT$1"
 
                         echo "rm -f $LXC_ROOTFS_MOUNT$1" >> $LXC_ROOTFS_MOUNT/etc/rcS.d/mknodes
-                        echo "ln -s $(readlink -f $LXC_ROOTFS_MOUNT$1) $LXC_ROOTFS_MOUNT$1" $1 >> $LXC_ROOTFS_MOUNT/etc/rcS.d/mknodes
+                        echo "#"$(readlink -f $LXC_ROOTFS_MOUNT$1) >> $LXC_ROOTFS_MOUNT/etc/rcS.d/mknodes
+                        echo "ln -s $(readlink -f $LXC_ROOTFS_MOUNT$1) $LXC_ROOTFS_MOUNT$1" >> $LXC_ROOTFS_MOUNT/etc/rcS.d/mknodes
 
                         ;;
                 "block special file")
