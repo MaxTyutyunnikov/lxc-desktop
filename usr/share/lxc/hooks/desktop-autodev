@@ -141,6 +141,33 @@ if [ -n "$LXC_ROOTFS_MOUNT" -a -d $LXC_ROOTFS_MOUNT/etc ]; then
         find $LXC_ROOTFS_MOUNT/dev -ls
 
         mkdir -p $LXC_ROOTFS_MOUNT/etc/X11
+        mkdir -p $LXC_ROOTFS_MOUNT/etc/X11/xorg.conf.d
+
+        cat >$LXC_ROOTFS_MOUNT/etc/X11/xorg.conf.d/10-input.conf <<EOF
+    Section "ServerFlags"
+	Option "AutoAddDevices" "False"
+    EndSection
+    
+    Section "ServerLayout"
+	Identifier     "Desktop"
+	InputDevice    "Mouse0" "CorePointer"
+	InputDevice    "Keyboard0" "CoreKeyboard"
+    EndSection
+    
+    Section "InputDevice"
+	Identifier "Keyboard0"
+	Driver "kbd"
+	Option "XkbLayout" "de"
+    EndSection
+    
+    Section "InputDevice"
+	Identifier "Mouse0"
+	Driver "mouse"
+	Option "Protocol" "auto"
+	Option "Device" "/dev/input/mice"
+	Option "ZAxisMapping" "4 5 6 7"
+    EndSection 
+EOF
 
 #        echo > $LXC_ROOTFS_MOUNT/etc/X11/xorg.conf
 #
