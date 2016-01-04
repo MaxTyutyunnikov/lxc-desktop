@@ -104,6 +104,7 @@ clone_devices \
         /dev/fb1 \
         /dev/mem \
         /dev/psaux \
+        /dev/ptmx \
         /dev/i2c-* \
         /dev/hidraw0 \
         /dev/hidraw1 \
