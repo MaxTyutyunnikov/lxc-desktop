@@ -69,21 +69,30 @@ fi
 
 clone_devices \
         /dev/vga_arbiter \
+        /dev/console \
+        /dev/video0 \
+        /dev/sr0 \
         /dev/fb0 \
+        /dev/fb1 \
+        /dev/mem \
         /dev/dri \
         /dev/dri/card* \
+        /dev/dri/control* \
+        /dev/dri/render* \
         /dev/input \
         /dev/input/* \
         /dev/input/*/* \
+        /dev/snd \
+        /dev/snd/* \
+        /dev/snd/*/* \
+        /dev/v4l \
+        /dev/v4l/* \
+        /dev/v4l/*/* \
         /dev/psaux \
         /dev/tty[0-9] \
         /dev/tty[0-9][0-9] \
-        /dev/console \
         /dev/net \
-        /dev/mem \
-        /dev/net/tun \
-        /dev/video0
-        /dev/sr0
+        /dev/net/tun
 
 # For Docker in LXC with lxc.aa_profile = lxc-container-default-with-nesting.
 clone_devices \
