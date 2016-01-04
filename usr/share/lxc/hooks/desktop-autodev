@@ -155,7 +155,7 @@ if [ -n "$LXC_ROOTFS_MOUNT" -a -d $LXC_ROOTFS_MOUNT/etc ]; then
 #    Section "InputDevice"
 #	Identifier "Keyboard0"
 #	Driver "kbd"
-#	Option "XkbLayout" "de"
+#	Option "XkbLayout" "en"
 #    EndSection
 #    
 #    Section "InputDevice"
