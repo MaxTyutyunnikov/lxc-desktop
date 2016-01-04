@@ -11,7 +11,15 @@ export LC_ALL=C
 device_clone_script()
 {
         echo "# $1"
-        case `stat -L -c '%F' $1` in
+        case `stat -c '%F' $1` in
+                "symbolic link")
+                        echo "rm -f $LXC_ROOTFS_MOUNT$1"
+                        echo "ln -s `readlinf -f $LXC_ROOTFS_MOUNT$1` $LXC_ROOTFS_MOUNT$1" $1
+
+                        echo "rm -f $LXC_ROOTFS_MOUNT$1" >> $LXC_ROOTFS_MOUNT/etc/rcS.d/mknodes
+                        echo "ln -s `readlinf -f $LXC_ROOTFS_MOUNT$1` $LXC_ROOTFS_MOUNT$1" $1 >> $LXC_ROOTFS_MOUNT/etc/rcS.d/mknodes
+
+                        ;;
                 "block special file")
                         echo "rm -f $LXC_ROOTFS_MOUNT$1"
                         stat -L -c "mknod $LXC_ROOTFS_MOUNT%n b 0x%t 0x%T" $1
