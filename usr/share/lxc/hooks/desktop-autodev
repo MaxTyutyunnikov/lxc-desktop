@@ -142,27 +142,26 @@ if [ -n "$LXC_ROOTFS_MOUNT" -a -d $LXC_ROOTFS_MOUNT/etc ]; then
 
         mkdir -p $LXC_ROOTFS_MOUNT/etc/X11
 
-        echo > $LXC_ROOTFS_MOUNT/etc/X11/xorg.conf
-
-        cat >>$LXC_ROOTFS_MOUNT/etc/X11/xorg.conf <<EOF
-Section "ServerFlags"
-#  Option "AutoAddDevices" "false"
-  Option "AutoAddDevices" "true"
-EndSection
-EOF
-
-        (cd /dev/input && for input in event* mouse* mice; do
-        cat >>$LXC_ROOTFS_MOUNT/etc/X11/xorg.conf <<EOF
-
-Section "InputDevice"
-  Identifier "$input"
-  Driver "evdev"
-  Option "Device" "/dev/input/$input"
-  Option "AutoServerLayout" "true"
-EndSection
-EOF
-        done)
-
+#        echo > $LXC_ROOTFS_MOUNT/etc/X11/xorg.conf
+#
+#        cat >>$LXC_ROOTFS_MOUNT/etc/X11/xorg.conf <<EOF
+#Section "ServerFlags"
+##  Option "AutoAddDevices" "false"
+#  Option "AutoAddDevices" "true"
+#EndSection
+#EOF
+#
+#        (cd /dev/input && for input in event* mouse* mice; do
+#        cat >>$LXC_ROOTFS_MOUNT/etc/X11/xorg.conf <<EOF
+#
+#Section "InputDevice"
+#  Identifier "$input"
+#  Driver "evdev"
+#  Option "Device" "/dev/input/$input"
+#  Option "AutoServerLayout" "true"
+#EndSection
+#EOF
+#        done)
 
         mkdir -p $LXC_ROOTFS_MOUNT/etc/lightdm
         cat >$LXC_ROOTFS_MOUNT/etc/lightdm/lightdm.conf <<EOF
