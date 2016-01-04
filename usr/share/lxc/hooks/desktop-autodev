@@ -85,6 +85,9 @@ clone_devices \
         /dev/mem \
         /dev/psaux \
         /dev/i2c-* \
+        /dev/hidraw0 \
+        /dev/hidraw1 \
+        /dev/uinput \
         \
         /dev/char \
         /dev/char/* \
