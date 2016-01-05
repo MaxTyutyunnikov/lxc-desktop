@@ -75,7 +75,6 @@ if [ -n "$LXC_ROOTFS_MOUNT" -a -d $LXC_ROOTFS_MOUNT/etc ]; then
     chmod 0755 $LXC_ROOTFS_MOUNT/etc/rcS.d/mknodes
 fi
 
-
 clone_devices \
         /dev/console \
         /dev/vga_arbiter \
