@@ -53,13 +53,10 @@ deb http://archive.getdeb.net/ubuntu trusty-getdeb games # PlayDeb - http://www.
 ## Run this command: wget -O - http://www.bchemnet.com/suldr/suldr.gpg | apt-key add -
 deb http://www.bchemnet.com/suldr/ debian extra # Samsung Unified Linux Driver Repository (SULDR) - http://www.bchemnet.com/suldr/index.html
 
-## Run this command: sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 4E9CFF4E
-deb http://repository.spotify.com stable non-free # Spotify for Linux Preview - http://www.spotify.com/
-
 ## Run this command: sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys F24AEA9FB05498B7
 deb [arch=i386] http://repo.steampowered.com/steam/ precise steam # Steam for Linux - http://store.steampowered.com/about/
 
-## Run this command: http://update.swisssign.com/media/stick/repository/PublicKey -O- | sudo apt-key add -
+## Run this command: wget http://update.swisssign.com/media/stick/repository/PublicKey -O- | sudo apt-key add -
 deb http://update.swisssign.com/media/stick/repository trusty free non-free # SwissSign - http://swisssign.com/en
 
 ## Run this command: gpg --keyserver subkeys.pgp.net --recv 886DDD89 && gpg --export --armor 886DDD89  | sudo apt-key add -
@@ -91,9 +88,6 @@ deb http://ppa.launchpad.net/ubuntu-x-swat/x-updates/ubuntu trusty main # X Upda
 
 ## Run this command: sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 8844C542  
 deb http://ppa.launchpad.net/xorg-edgers/ppa/ubuntu trusty main # Xorg Edgers PPA - https://launchpad.net/~xorg-edgers
-
-deb http://update.yuuguu.com/repositories/apt hardy multiverse # Yuuguu - http://yuuguu.com
-
 
 ####### 3rd Party Source Repos
 
