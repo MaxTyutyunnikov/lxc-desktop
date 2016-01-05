@@ -190,6 +190,27 @@ Section "InputClass"
         MatchDevicePath "/dev/input/event*"
         Driver "evdev"
 EndSection
+
+Section "InputClass"
+        Identifier "evdev touchpad catchall"
+        MatchIsTouchpad "on"
+        MatchDevicePath "/dev/input/event*"
+        Driver "evdev"
+EndSection
+
+Section "InputClass"
+        Identifier "evdev tablet catchall"
+        MatchIsTablet "on"
+        MatchDevicePath "/dev/input/event*"
+        Driver "evdev"
+EndSection
+
+Section "InputClass"
+        Identifier "evdev touchscreen catchall"
+        MatchIsTouchscreen "on"
+        MatchDevicePath "/dev/input/event*"
+        Driver "evdev"
+EndSection
 EOF
 
 
