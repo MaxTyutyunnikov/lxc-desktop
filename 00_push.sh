@@ -13,7 +13,7 @@ echo === 03 =============================================================
 echo === 04 =============================================================
 ssh book /root/lxc-desktop/root/scripts/01_install.sh
 echo === 05 =============================================================
-ssh book /root/lxc-desktop/root/scripts/02_create.sh
+##ssh book /root/lxc-desktop/root/scripts/02_create.sh
 echo === 06 =============================================================
 ssh book /root/lxc-desktop/root/scripts/03_restart.sh
 echo === 07 =============================================================
